@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events Modification{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="stylesheets/events.css">
+{% endblock %}
+
+{% block body %}
+
+    {% if event is not empty %}
+
+        <div class="container">
+            {{ form_start(form) }}
+            {{ form_widget(form.title) }}
+            {{ form_widget(form.description) }}
+            {{ form_widget(form.date) }}
+            {{ form_end(form) }}
+        </div>
+    {% endif %}
+
+    <script>
+        $(document).ready(function() {
+            $("form").find("select").addClass("form-control")
+        })
+    </script>
+
+{% endblock %}

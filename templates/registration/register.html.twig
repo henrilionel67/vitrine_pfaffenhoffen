@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <div style="padding-left: 20%; padding-right: 20%; padding-top: 5%">
+        {{ form_start(form) }}
+        <i class="fas fa-at fa-lg"></i>
+        {{ form_widget(form.email, {'attr': { 'class': 'form-control', 'placeholder': 'example@domain.com'}}) }}
+        <small style="color: #C82829">{{ form_errors(form.email) }}</small>
+        <i class="fas fa-lock fa-lg" style="margin-top: 20px"></i>
+        {{ form_widget(form.plainPassword.first, {'attr': { 'class': 'form-control', 'placeholder': 'Password'}}) }}
+        <small style="color: #C82829">{{ form_errors(form.plainPassword.first) }}</small>
+        <div style="margin-top: 20px">
+            {{ form_widget(form.plainPassword.second, {'attr': { 'class': 'form-control', 'placeholder': 'Repeat password'}}) }}
+            <small style="color: #C82829">{{ form_errors(form.plainPassword.second) }}</small>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary" style="margin-top: 20px;padding-left: 30px;padding-bottom: 10px;padding-top: 10px;padding-right: 30px;">Register!</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

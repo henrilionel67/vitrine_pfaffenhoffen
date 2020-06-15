@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News Creation{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="stylesheets/events.css">
+{% endblock %}
+
+{% block body %}
+
+        <div class="container">
+            {{ form_start(form) }}
+            {{ form_widget(form)}}
+            {{ form_end(form) }}
+        </div>
+
+{% endblock %}

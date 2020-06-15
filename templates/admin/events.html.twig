@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events Admin{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="stylesheets/events.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container"><a href="/admin/events/add"><button class="btn btn-outline-success"><i class="fas fa-plus"></i> Ajouter</button></a></div>
+
+
+    {% if events is not empty %}
+        <div class="container">
+            {% for event in events %}
+                <div class="card">
+                    <div class="card-header">
+                        {{ event.date | date('d F Y') }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description }}</p>
+                        <a href={{ "/admin/events/" ~ event.id }}><button class="btn btn-outline-warning"><i class="fas fa-pen"></i> Modifier</button></a>
+                        <a href={{ "/admin/events/" ~ event.id ~ "/delete" }}><button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Supprimer</button></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}

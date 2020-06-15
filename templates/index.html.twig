@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to PfaffenHoffen!{% endblock %}
+
+{% block body %}
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); padding-left: 12.5%">
+        <div class="fluid-container" style="margin: 2%; margin-left: 5%; margin-right: 5%; grid-column: 1">
+            <div class="row" style="margin-right: 1%">
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#events" role="tab" aria-controls="events" aria-selected="true">Évènements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="#news" role="tab" aria-controls="news" aria-selected="false">Actualités</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content mt-3">
+                            <div class="tab-pane active" id="events" role="tabpanel">
+                                <div class="container card-text text-justify">
+                                    {% for event in events %}
+                                        <div class="card">
+                                            <div class="card-header">
+                                                {{ event.date | date('d F Y') }}
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ event.title }}</h5>
+                                                <p class="card-text">{{ event.description }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="news" role="tabpanel" aria-labelledby="history-tab">
+                                <div class="container card-text text-justify">
+                                    {% for new in news %}
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ new.title }}</h5>
+                                                <p class="card-text">{{ new.description }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/pfaffenhoffen_france_2987431?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="margin-top: 2%; width: 460px; height: 566px; grid-column: 2"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/en/weather/week/pfaffenhoffen_france_2987431?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
+    </div>
+
+{% endblock %}

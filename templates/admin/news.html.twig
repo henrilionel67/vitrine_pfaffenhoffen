@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News Admin{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="stylesheets/news.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container"><a href="/admin/news/add"><button class="btn btn-outline-success"><i class="fas fa-plus"></i> Ajouter</button></a></div>
+
+
+    {% if news is not empty %}
+        <div class="container">
+            {% for new in news %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ new.title }}</h5>
+                        <p class="card-text">{{ new.description }}</p>
+                        <a href={{ "/admin/news/" ~ new.id }}><button class="btn btn-outline-warning"><i class="fas fa-pen"></i> Modifier</button></a>
+                        <a href={{ "/admin/news/" ~ new.id ~ "/delete" }}><button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Supprimer</button></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+.card-title, .card-text {
+    font-family: Georgia, serif;
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+    content: '>';
+    font-size: 55px;
+    color: black;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 55px;
+    color: black;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    width: 10%;
+}
+
+.carousel-inner {
+    width: 80%;
+    margin-left: 10%;
+}
